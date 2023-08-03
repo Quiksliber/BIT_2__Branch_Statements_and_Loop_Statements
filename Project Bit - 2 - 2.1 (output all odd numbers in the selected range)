@@ -1,0 +1,28 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main()
+{
+	int min = 0;
+	int max = 0;
+	printf("This is a program to output all odd numbers in the selected range, please follow the system prompts.\n");
+	printf("Please enter the minimum data you want:");
+	scanf("%d", &min);
+	printf("Please enter the maximum data you want:");
+	scanf("%d", &max);
+	printf("The following will output all odd numbers between your chosen range:\n");
+	int num = min;
+	int result = 0;
+	while (num < max)
+	{
+		result = num % 2;
+		if (result == 1)
+		{
+			printf("%d   ", num);
+			num++;
+		}
+		else
+			num++;
+	}
+	printf("Note : if you enter odd max/min values, the output will contain the values you entered.\n");
+	return 0;
+}
