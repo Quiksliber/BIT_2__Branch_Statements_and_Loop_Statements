@@ -1,0 +1,47 @@
+//Simplified rewriting of "Statistics of Answers to a Four-choice Question for Ten People" (Unicode: "Project Bit - 0 - 3.5")
+//After learning the "switch" statement.
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+char ans = 0;
+int main()
+{
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int d = 0;
+	int i = 1;
+	while (i < 11)
+	{
+		printf("Please enter the answer of student %d (please be sure to enter capital letters A , B , C , D): ", i);
+		scanf("%s", &ans);
+		switch (ans)
+		{
+		case 'A':
+			a++;
+			i++;
+			break;
+		case 'B':
+			b++;
+			i++;
+			break;
+		case 'C':
+			c++;
+			i++;
+			break;
+		case 'D':
+			d++;
+			i++;
+			break;
+		default:
+			i++;
+			break;
+		}
+	}
+	i = i - 1;
+	printf("There are %d people in the college participating in the test this time\n", i);
+	printf("There are %d people who chose the answer A\n", a);
+	printf("There are %d people who chose the answer B\n", b);
+	printf("There are %d people who chose the answer C\n", c);
+	printf("There are %d people who chose the answer D\n", d);
+	return 0;
+}
