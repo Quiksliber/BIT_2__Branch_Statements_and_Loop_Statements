@@ -1,0 +1,17 @@
+//Use this exercise to practice for loops.
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main()
+{
+	int n = 1;
+	int mut = 1;
+	int N = 0;
+	printf("Please enter the number n that requires factorial:");
+	scanf("%d", &N);
+	for (n = 1, mut = 1; n <= N; n++)
+	{
+		mut = n * mut;
+	}
+	printf("The obtained factorial result is: %d 。\n", mut);
+	return 0;
+}
