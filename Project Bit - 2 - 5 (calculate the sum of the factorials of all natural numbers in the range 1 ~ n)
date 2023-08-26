@@ -1,0 +1,28 @@
+//Use this exercise to continue practicing for loops.
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main()
+{
+    int sum = 0;//final sum result
+    int i = 1;//counter
+    int n = 0;//the maximum number n required
+    int fac = 1;//The factorial result of each number
+    int m = 1;//Counter for factorial of each number
+    printf("This is a simple program to calculate the sum of factorials of natural numbers in the range 1 ~ n. \n");
+    printf("Please enter the largest natural number n required : ", n);
+    scanf("%d", &n);
+    do
+    {
+        fac = 1;
+        m = 1;
+        do
+        {
+            fac = fac * m;
+            m++;
+        } while (m <= i);
+        sum = sum + fac;
+        i++;
+    } while (i <= n);
+    printf("The desired result is : %d\n", sum);
+    return 0;
+}
