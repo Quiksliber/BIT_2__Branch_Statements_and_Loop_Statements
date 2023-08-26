@@ -1,4 +1,4 @@
-//Use this exercise to continue practicing for loops.
+//Use this exercise to practice do loops.
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 int main()
