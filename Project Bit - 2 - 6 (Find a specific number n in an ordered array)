@@ -1,0 +1,41 @@
+//Use this question to practice binary search, do loop, logical nesting, and review the simple logical operator " && "。
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main()
+{
+    int arr[] = { 1,2,3,4,5,6,7,8,9,10 };//total array
+    int k = 0;//number to find
+    int size = sizeof(arr) / sizeof(arr[0]);//Find the number of elements in an array
+    int left = 0;//subscript for the left-hand digit in the range
+    int right = size - 1;//subscript for the right-hand digit in the range
+    printf("Please enter the number you want to query : ");
+    scanf("%d", &k);
+    if (left < k && k < right)
+    {
+        int mid = (left + right) / 2;//subscript for the middle number in the range
+        do
+        {
+            if (arr[mid] < k)
+            {
+                left = mid + 1;
+                mid = (left + right) / 2;
+            }
+            else if (arr[mid] > k)
+            {
+                right = mid - 1;
+                mid = (left + right) / 2;
+            }
+            else
+            {
+                break; 
+            }
+        } while (mid != k);
+        mid = mid + 1;
+        printf("Please verify : the number you are looking for is %d .\n", mid);
+    }
+    else
+    {
+        printf("ERROR!!!\nReason: The number you need is not found, please contact the administrator if necessary.\n");
+    }
+    return 0;
+}
