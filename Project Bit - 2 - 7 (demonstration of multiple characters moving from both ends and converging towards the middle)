@@ -1,0 +1,24 @@
+//Use this question to practice the do ... while loop, and try to apply a few header files that are not commonly used.
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#include <Windows.h>
+int main()
+{
+    char arr1[] = "Welcome to Bit class !!!";
+    char arr2[] = "########################";
+    int str = strlen(arr1);
+    int left = 0;
+    int right = str - 1;
+    do
+    {
+        arr2[left] = arr1[left];
+        arr2[right] = arr1[right];
+        left++;
+        right--;
+        Sleep(500);//Freeze the screen for 0.5 seconds
+        system("cls");//clear screen
+        printf("%s\n", arr2);
+    } while (left <= right);
+    return 0;
+}
