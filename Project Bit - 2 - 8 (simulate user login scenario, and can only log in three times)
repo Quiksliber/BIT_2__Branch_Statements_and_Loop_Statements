@@ -1,0 +1,32 @@
+//Use this question to familiarize yourself with the for loop.
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    int i = 0;
+    char passwords[100] = { 0 };
+    char correct_password[] = "Zyr040523";
+    for (i = 0; i <= 2; i++)
+    {
+        printf("Please enter your system default password : ");
+        scanf("%s", &passwords);
+        if (strcmp(passwords, correct_password) == 0)//Strings cannot be compared with " == "
+        {
+            break;
+        }
+        else
+        {
+            printf("Password input error, please try again!\n");
+        }
+    }
+    if (i >= 3)
+    {
+        printf("ERROR!!!\nReason: Too many wrong passwords entered consecutively, the system is locked!\n");
+    }
+    else
+    {
+        printf("The password is entered correctly, welcome to enter the system!\n");
+    }
+    return 0;
+}
