@@ -1,0 +1,121 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <Windows.h>
+#include <stdlib.h>
+#include <time.h>
+void initial_menu()
+{
+	printf("###################################################################\n");
+	Sleep(1000);
+	printf("###################  Welcome to WEIJIACHEN OS!  ###################\n");
+	Sleep(1000);
+	printf("########  Please make a selection in the input field below:  ######\n");
+	Sleep(1000);
+	printf("####  To officially enter the guessing game, please enter 1;  #####\n");
+	Sleep(1000);
+	printf("##################  To exit now, please enter 0;  #################\n");
+	Sleep(1000);
+	printf("###################################################################\n");
+}
+void rule()
+{
+	printf("1.The answer is a certain natural number from 1 to 100.\n");
+	Sleep(1000);
+	printf("2.You have up to 5 chances to guess the number.\n");
+	Sleep(1000);
+	printf("3.Every time you guess a number, if you guess wrong, we will give you a hint to tell you whether the number you guessed is too large or too small.\n");
+	Sleep(1000);
+	printf("100. Please agree to the above rules and read our privacy notice in detail.\n");
+	Sleep(1000);
+	printf("\n\nAfter agreeing to all agreements, please enter 1 to enter the game.\n");
+	int rule_selection = 0;
+	printf("Input area : ");
+	scanf("%d", &rule_selection);
+	switch (rule_selection)
+	{
+	case 1:
+		break;
+	default:
+		printf("The game is over, welcome to come next time!\n");
+		return 0;
+	}
+}
+void game()
+{
+	//The setting of the random value requires the introduction of a timestamp, which is a series of numbers converted from time, and the time is changing all the time.
+	int ret = rand() % 100 + 1;
+	int visitor_choice = 0;
+	int i = 0;
+	for (i = 0; i <= 4; i++)
+	{
+		system("cls");
+		printf("Please enter the number you guessed : ");
+		scanf("%d", &visitor_choice);
+		if (visitor_choice < ret)
+		{
+			printf("You guessed wrong, please enter a higher number next!\n");
+			int s = 0;
+			while (s < 1 || s > 1)
+			{
+				printf("After confirming the prompt, please enter 1 to continue the game : ");
+				scanf("%d", &s);
+			}
+		}
+		else if (visitor_choice > ret)
+		{
+			printf("You guessed wrong, please enter a smaller number next!\n");
+			int b = 0;
+			while (b < 1 || b > 1)
+			{
+				printf("After confirming the prompt, please enter 1 to continue the game : ");
+				scanf("%d", &b);
+			}
+		}
+		else
+		{
+			printf("Congratulations, you guessed it! ! !");
+			break;
+		}
+	}
+}
+int main()
+{
+	printf("Let's play a little game where I generate numbers and you guess.\n");
+	Sleep(2000);
+	int enter = 0;
+	printf("Enter 1 to start the game, enter 0 to exit the system.\n");
+	Sleep(2000);
+	printf("please make a choice : ");
+	scanf("%d", &enter);
+	switch (enter)
+	{
+	case 1:
+		Sleep(3000);
+		system("cls");
+		initial_menu();
+		int menu = 0;
+		printf("input area : ");
+		scanf("%d", &menu);
+		switch (menu)
+		{
+		case 1:
+			Sleep(3000);
+			system("cls");
+			printf("Please read and agree to our user agreement and tips first! ! !\n");
+			Sleep(3000);
+			rule();
+			system("cls");
+			printf("The game officially begins! ! !\n");
+			srand((unsigned int)time(NULL));
+			game();
+		default:
+			break;
+		}
+	case 0:
+		break;
+	default:
+		break;
+	}
+	printf("The game is over, welcome to come next time!\n");
+	return 0;
+}
