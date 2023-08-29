@@ -1,0 +1,60 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#include <Windows.h>
+int main()
+{
+	int ID_code[18] = { 0 };//A string representing an ID number
+	char factor[] = { 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 ,0 };
+	printf("Please enter the ID number one by one, and please note: the ID number containing X is temporarily unavailable, please wait for the upgrade.\n");
+	printf("Please enter your 18-digit ID number to calculate whether your check digit is correct.\n");
+	printf("Please enter 1 to continue : ");
+	int n = 0;
+	scanf("%d", &n);
+	switch (n)
+	{
+	case 1:
+	{
+		int i = 0;
+		for (i = 0; i < 18; i++)
+		{
+			system("cls");
+			printf("%d digits entered。\n", i);
+			printf("Please enter digit %d : ", i + 1);
+			scanf("%d", &ID_code[i]);
+		}
+		int num = 0;//Variables for subscripting labeled data
+		int multi = 0;//Flags used to calculate the product of each digit
+		int sum = 0;//Sum of numbers used for final check digit calculation
+		int ID_code_num = 0;
+		int factor_num = 0;
+		for (num = 0; num < 18; num++)
+		{
+			multi = 0;
+			ID_code_num = 0;
+			factor_num = 0;
+			ID_code_num = ID_code[num];
+			factor_num = factor[num];
+			multi = ID_code_num * factor_num;
+			sum = sum + multi;
+		}
+		int Y = 0;//A number representing the final calculated check digit
+		Y = sum % 11;
+		char check_digit[] = { 1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+		int y = check_digit[Y];
+		printf("Please check : Your check digit is calculated as : %d\n", y);
+		int num_17 = ID_code[17];
+		if (y == num_17)
+		{
+			printf("The check result is : Correct!!!");
+		}
+		else
+		{
+			printf("The check result is : Mistake!!!");
+		}
+	}
+	default:
+		break;
+	}
+	return 0;
+}
